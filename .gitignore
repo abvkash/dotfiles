@@ -7,3 +7,5 @@
 
 .vim/swaps/*
 !.vim/swaps/.gitkeep
+
+.vim/viminfo
