@@ -4,8 +4,9 @@
     "workbench.activityBar.location": "top",
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.defaultLocation": "editor",
-    "workbench.colorTheme": "Default Dark+",
     "explorer.confirmDragAndDrop": false,
     "editor.tabSize": 2,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "vim.useSystemClipboard": true,
+    "workbench.colorTheme": "Default Dark+"
 }
