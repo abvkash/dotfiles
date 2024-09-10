@@ -37,6 +37,9 @@ inoremap <C-c> <ESC>
 noremap x "_x
 noremap X "_X
 
+" Fixes vim hanging when opening a ts file
+set re=2
+
 " For vim's built-in file explorer
 let g:netrw_liststyle=3
 let g:netrw_banner=0
@@ -46,17 +49,9 @@ let g:netrw_dirhistmax=0
 
 " Appearance
 syntax on
-set t_Co=16
+colorscheme gruber
 set background=dark
 set cursorline
-
-hi Comment      ctermfg=darkgreen
-hi Type         ctermfg=darkblue
-hi Statement    ctermfg=red
-hi StorageClass ctermfg=darkblue
-hi Statement    ctermfg=magenta
-hi Constant     ctermfg=red
-hi Function     ctermfg=darkyellow
 
 hi LineNr       ctermfg=darkgray
 hi CursorLine   cterm=NONE
