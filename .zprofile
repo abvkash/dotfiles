@@ -34,8 +34,8 @@ if [[ -s "$NVM_DIR/nvm.sh" ]]; then
     eval "function ${cmd}(){ unset -f ${NODE_GLOBALS[*]}; _load_nvm; unset -f _load_nvm; ${cmd} \$@; }"
   done
 
-  unset NODE_GLOBALS
-  unfunction _load_nvm
+  # unset NODE_GLOBALS
+  # unfunction _load_nvm
 fi
 
 [ -s "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ] \
@@ -43,7 +43,8 @@ fi
 
 export VISUAL="vi"
 export EDITOR="vi"
-export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/opt/ruby/bin:$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$GOPATH/bin:$PATH"
 
 zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
 zstyle ":completion:*" list-dirs-first true
