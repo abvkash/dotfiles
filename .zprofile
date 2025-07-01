@@ -1,43 +1,21 @@
-export GOPATH="$HOME/go"
-export NVM_DIR="$HOME/.nvm"
-path=(
-  "/opt/homebrew/bin"
-  "/usr/local/bin"
-  "/usr/local/sbin"
-  "~/bin"
-  "/opt/homebrew/opt/ruby/bin"
-  "$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
-  "$GOPATH/bin"
-  "/opt/homebrew/opt/llvm/bin"
-  $path
-)
-export PATH
+export GOPATH="$HOME/go" NVM_DIR="$HOME/.nvm" VISUAL="vi" EDITOR="vi"
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/opt/homebrew/opt/ruby/bin:/opt/homebrew/opt/llvm/bin:$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$GOPATH/bin:/Library/TeX/texbin:$PATH"
 
-# Use gls
-if command -v gls &>/dev/null && gls --version | grep -q "GNU coreutils"; then
-  alias ls="gls -GhF --color=auto --group-directories-first"
-else
+# Use GNU ls if available, otherwise default ls
+command -v gls &>/dev/null && gls --version | grep -q "GNU coreutils" && \
+  alias ls="gls -GhF --color=auto --group-directories-first" || \
   alias ls="ls -GhF --color=auto"
-fi
-
 alias grep="grep --color=auto"
 
-export VISUAL="vi"
-export EDITOR="vi"
-
-# Showing git branch on RPROMPT
-autoload -Uz vcs_info
+autoload -Uz vcs_info compinit && compinit
 precmd() { vcs_info }
-zstyle ":vcs_info:git:*" formats "(%b)"
-setopt PROMPT_SUBST
-
-zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
+zstyle ":vcs_info:git:*" formats "(%b)" # Show git branch on RPROMPT
+zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}" 
 zstyle ":completion:*" list-dirs-first true
-autoload -Uz compinit && compinit
+setopt PROMPT_SUBST
+export RPROMPT="\$vcs_info_msg_0_" PROMPT="%n@%m:%F{blue}%~%f %# "
 
-export RPROMPT="\$vcs_info_msg_0_"
-export PROMPT="%n@%m %F{blue}%~%f %# "
-
+# NVM lazy loading
 if [ -s "$HOME/.nvm/nvm.sh" ]; then
   nvm_cmds=(nvm node npm yarn)
   for cmd in $nvm_cmds ; do
@@ -45,5 +23,8 @@ if [ -s "$HOME/.nvm/nvm.sh" ]; then
   done
 fi
 
-# [ -s "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ] \
-#   && \. "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+bindkey "^[f" forward-word
+bindkey "^[b" backward-word
+
+bindkey -v
+bindkey '^R' history-incremental-search-backward

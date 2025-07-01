@@ -25,3 +25,6 @@ for file in "${FILES[@]}"; do
     echo "[ERROR] $src does not exist"
   fi
 done
+
+# To enable key-repeating
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false

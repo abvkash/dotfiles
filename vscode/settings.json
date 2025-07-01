@@ -1,12 +1,14 @@
 {
-    "editor.minimap.enabled": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "workbench.activityBar.location": "top",
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.defaultLocation": "editor",
-    "explorer.confirmDragAndDrop": false,
-    "editor.tabSize": 2,
     "editor.insertSpaces": true,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "explorer.confirmDragAndDrop": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.defaultLocation": "editor",
+    "terminal.integrated.fontSize": 14,
     "vim.useSystemClipboard": true,
+    "workbench.activityBar.location": "top",
+    "latex-workshop.view.pdf.color.dark.backgroundColor": "",
+    "workbench.startupEditor": "none",
     "workbench.colorTheme": "Default Dark+"
 }

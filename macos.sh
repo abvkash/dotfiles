@@ -10,3 +10,4 @@ killall Dock;
 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true;
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true;
+

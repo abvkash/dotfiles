@@ -1,66 +1,31 @@
-" Sane settings
-set backspace=2
-set nocompatible
+set nocompatible backspace=2 clipboard^=unnamed,unnamedplus
+set binary noeol hidden nowrap mouse+=a autochdir
 
-" Yank to system clipboard
-set clipboard^=unnamed,unnamedplus
+set viminfo+=n~/.vim/viminfo dir=~/.vim/swaps undodir=~/.vim/undo undofile
 
-" No newlines at end of files
-set binary noeol
-
-set viminfo+=n~/.vim/viminfo
-set dir=~/.vim/swaps
-set undodir=~/.vim/undo
-set undofile
-
-" Indentation
-set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+set expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent
 autocmd FileType make setlocal noexpandtab
-set smartindent
 
 set hlsearch incsearch ignorecase smartcase
-
 set number relativenumber
-
 set splitbelow splitright
+set shortmess+=Iac path+=** wildmenu " c -> Turn off completion messages
+set re=2 " Fixes vim hanging when opening a ts file
 
-set mouse+=a
-set hidden
-set autochdir
-set nowrap
-set shortmess+=Iac " c -> Turn off completion messages
-
-set path+=**
-set wildmenu
+syntax on
+set t_Co=16 bg=dark cursorline laststatus=2 statusline=%F%m%r%h%w\ %=[%v\,%o]
+colorscheme custom
 
 inoremap <C-c> <ESC>
 noremap x "_x
 noremap X "_X
 
-" Fixes vim hanging when opening a ts file
-set re=2
-
-" For vim's built-in file explorer
-let g:netrw_liststyle=3
-let g:netrw_banner=0
-let g:netrw_browse_split=4
-let g:netrw_winsize=25
+let g:netrw_liststyle=3 
+let g:netrw_banner=0 
+let g:netrw_browse_split=4 
+let g:netrw_winsize=25 
 let g:netrw_dirhistmax=0
 
-" Appearance
-syntax on
-colorscheme gruber
-set background=dark
-set cursorline
-
-hi LineNr       ctermfg=darkgray
-hi CursorLine   cterm=NONE
-hi CursorLineNr cterm=NONE
-
-" Quick fix format
 set errorformat+=%A%\\s%#File\ \"%f\"\\,\ line\ %l\\,\ in%.%#
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
-
-set laststatus=2
-set statusline=%F%m%r%h%w
