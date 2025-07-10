@@ -10,5 +10,5 @@
     "workbench.activityBar.location": "top",
     "latex-workshop.view.pdf.color.dark.backgroundColor": "",
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Default Dark+"
+    "editor.wordWrap": "off"
 }

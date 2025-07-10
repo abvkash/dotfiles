@@ -13,8 +13,8 @@ set shortmess+=Iac path+=** wildmenu " c -> Turn off completion messages
 set re=2 " Fixes vim hanging when opening a ts file
 
 syntax on
-set t_Co=16 bg=dark cursorline laststatus=2 statusline=%F%m%r%h%w\ %=[%v\,%o]
-colorscheme custom
+set bg=dark cursorline laststatus=2 statusline=%F%m%r%h%w\ %=[%v\,%o]
+colorscheme habamax
 
 inoremap <C-c> <ESC>
 noremap x "_x

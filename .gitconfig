@@ -1,7 +1,7 @@
 [user]
-	name = Abi
-	email = abvkash@gmail.com
+  name = Abi
+  email = abvkash@gmail.com
 [init]
   defaultBranch = main
 [merge]
-	conflictstyle = diff3
+  conflictstyle = diff3
