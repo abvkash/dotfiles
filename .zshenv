@@ -1,6 +1,8 @@
-export VISUAL="vi" 
-export EDITOR="vi"
+# Editor
+export VISUAL='vim' 
+export EDITOR='vim'
 
+# Environment variables
 export GOPATH="$HOME/go" 
 export NVM_DIR="$HOME/.nvm" 
 
