@@ -12,9 +12,17 @@ setopt MENU_COMPLETE
 
 # Prompt
 autoload -Uz vcs_info compinit && compinit
-zstyle ":vcs_info:git:*" formats "(%b)"
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' unstagedstr '*'
+zstyle ':vcs_info:git:*' stagedstr '+'
+zstyle ':vcs_info:git:*' formats '(%b%u%c)'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+
 precmd() { vcs_info }
 setopt PROMPT_SUBST
+
 export PROMPT="%n@%m %F{blue}%~%f %# " 
 export RPROMPT="\$vcs_info_msg_0_"
 
